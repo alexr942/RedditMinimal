@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Post from './components/RedditPosts';
+import UserReplies from './components/comments'
 // import SubRedditCard from './components/SubReddit'
 import './App.css';
 
 
 const App = () => {
+  
 
     const [posts, setPosts] = useState([]);
     const [search, setSearch] = useState('');
     const [query, setQuery] = useState('home');
+    const [replies,setReplies] = useState([]);
 
 useEffect(() => {
   getPosts();
+  getReplies();
 }, [query]);
 
 const getPosts = async () => {
@@ -32,7 +36,12 @@ const getSearch = e => {
   setSearch('')
 }
 
-
+const getReplies = async (permalink) => {
+  const response = await fetch(`https://www.reddit.com${permalink}.json`);
+  const data = await response.json();
+  setReplies(data[1].data.children);
+  console.log(data[1].data.children);
+}
 
 
 
@@ -50,18 +59,18 @@ return (
         description={post.data.selftext}
         image={post.data.thumbnail}
         comments={post.data.num_comments}
-        linkToComs = {post.data.permalink}
         />
         ))} 
          
       </div>
-      <div className='SubReddits'>
-        
-        {/* {posts.map(post => (
-            <SubRedditCard
-            subReddits = {post.data.subreddit}
-          />
-        ))} */}
+      <div className='replies' >
+
+      {replies.map(replie => (
+        <UserReplies
+       replies={replie.data.body}
+        />
+        ))} 
+
       </div>
   
     </div>

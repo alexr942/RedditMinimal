@@ -1,13 +1,13 @@
  import React from 'react';
- import {Post} from './RedditPosts'
+ 
 
 
-const UserReplies = () => {
+const UserReplies = ({replies}) => {
     return( 
-        <div className='Coms'>
-            <h5></h5>
+        <div className='getReplies'>
+            <h1> {replies}</h1>
         </div>
      );
 }
  
-export default UserReplies;
+ export default UserReplies;
