@@ -52,7 +52,7 @@ const getReplies = async (permalink) => {
 return (
    <div className="App">
      <header className='header'>
-        <img className='redditLogo' src={img}/>
+        <img className='redditLogo' src={img} alt='reddit logo'/>
         <form onSubmit={getSearch} className="search-form"> 
         <input className="search-bar" type='text' value={search} onChange={updateSearch}/>
         <button className="search-button" type='submit'>search</button>
