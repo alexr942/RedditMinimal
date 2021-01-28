@@ -1,11 +1,10 @@
 .App {
   min-height: 100vh;
-background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  background-image: linear-gradient(to top, #37ecba 0%, #72afd3 100%);
 }
 
-
 .search-bar {
- width: 50%;
+ width: 90%;
  border: none;
  padding: 10px;
 }
@@ -54,4 +53,18 @@ background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
 
 .userName {
   text-decoration: underline;
+}
+
+.redditLogo {
+
+  height: 50px;
+  width: 50px;
+  margin: 10px;
+
+
+}
+
+.header {
+  display: inline-flex;
+  width: 50%;
 }

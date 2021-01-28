@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Post from './components/RedditPosts';
 import './App.css';
-
-
+import img from './img/redditlogo.png'
 const App = () => {
   
       const [posts, setPosts] = useState([]);
       const [search, setSearch] = useState('');
-      const [query, setQuery] = useState('games');
+      const [query, setQuery] = useState('r/memes');
      
 
 useEffect(() => {
@@ -52,10 +51,13 @@ const getReplies = async (permalink) => {
 
 return (
    <div className="App">
+     <header className='header'>
+        <img className='redditLogo' src={img}/>
         <form onSubmit={getSearch} className="search-form"> 
         <input className="search-bar" type='text' value={search} onChange={updateSearch}/>
         <button className="search-button" type='submit'>search</button>
   </form>
+  </header>
     <div className='posts'>
       {posts.map(post => (
         <Post
