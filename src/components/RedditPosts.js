@@ -35,7 +35,7 @@ const getComments = async () => {
         <div className='getPosts'> 
 
             <h2>{title}</h2>
-            <small>{permalink}</small>
+            {/* <small>{permalink}</small> */}
             <p>{description}</p>
             <img className='postImg' src={image} alt='' />
             <h5><button onClick={handleClick}>Comments: {comments}</button></h5>
